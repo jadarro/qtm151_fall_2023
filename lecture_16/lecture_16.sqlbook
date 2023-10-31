@@ -99,7 +99,8 @@ Try it yourself!
 -- Select a new driver id (needs to be unique)
 -- Make sure to deparate arguments by a semicolon!
 
-
+INSERT INTO drivers VALUES (5, "Max Verstappen", 'Dutch', 51)
+INSERT INTO drivers VALUES (6, "Juan Pablo Montoya", 'Colombian', 6)
 
 -- SQLBook: Markup
 # <span style="color:darkblue"> II. Dataset Operations </span>
