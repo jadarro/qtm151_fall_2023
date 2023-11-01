@@ -86,6 +86,7 @@ View the table in the VSC "Database" Panel
 $\qquad$ <img src="figures/view_table_sql.png" alt="drawing" width="350"/>
 
 -- SQLBook: Code
+-- Active: 1698698546845@@127.0.0.1@5432@postgres
 -- In SQL, a set of tables is called a "Schema"
 -- Click "refresh" to see changes
 -- The pencil button edits column attributes
@@ -97,6 +98,7 @@ Try it yourself!
 
 - Add two/three more rows on your own
 -- SQLBook: Code
+-- Active: 1698698546845@@127.0.0.1@5432@postgres
 -- Add your name/nationality and your neighbors'
 -- Select a new driver id (needs to be unique)
 -- Make sure to deparate arguments by a semicolon!
