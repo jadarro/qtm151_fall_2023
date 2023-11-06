@@ -147,6 +147,7 @@ WHERE (nationality = 'German') AND (driver_id = 2);
 
 Aggregate
 -- SQLBook: Code
+-- Active: 1698883779896@@127.0.0.1@5432@formula1@drivers
 -- To compute aggregate statistics use a statistic function,
 -- such as SUM() or AVG() 
 -- The AS is an alias which assigns a name to the aggregate statistic

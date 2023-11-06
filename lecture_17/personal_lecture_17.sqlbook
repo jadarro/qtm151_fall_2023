@@ -55,6 +55,7 @@ DROP SCHEMA public;
 DROP TABLE IF EXISTS bills.bills_actions;
 DROP TABLE IF EXISTS bills.bills_subjects;
 DROP TABLE IF EXISTS members.us_congress_members;
+DROP TABLE IF EXISTS bills.us_congress_members;
 -- SQLBook: Markup
 # <span style="color:darkblue"> III. Import CSV into SQL </span>
 
@@ -165,6 +166,7 @@ Import the data before proceeding!
 
 Count unique rows
 -- SQLBook: Code
+-- Active: 1698883779896@@127.0.0.1@5432@us_congress
 -- COUNT(DISTINCT ) computes the number of unique rows
 -- "AS" is the alias or name of the statistic
 
@@ -175,6 +177,7 @@ FROM members.us_congress_members
 <font size = "5">
 Display unique rows
 -- SQLBook: Code
+-- Active: 1698883779896@@127.0.0.1@5432@us_congress@members
 SELECT party_name       
 FROM members.us_congress_members
 GROUP BY party_name
@@ -183,6 +186,7 @@ GROUP BY party_name
 
 Count members of group
 -- SQLBook: Code
+-- Active: 1698883779896@@127.0.0.1@5432@us_congress
 SELECT party_name,       
        COUNT(*) AS num_members       
 FROM members.us_congress_members
@@ -192,6 +196,7 @@ GROUP BY party_name;
 
 Merge Databases
 -- SQLBook: Code
+-- Active: 1698883779896@@127.0.0.1@5432@us_congress
 -- FROM indicates the primary table
 -- LEFT JOIN indicates the secondary table for merging
 -- ON ... = ... is the matching column
@@ -200,9 +205,9 @@ Merge Databases
 -----  ON table1.key = table2.key
 
 SELECT * 
-FROM bills.bills_actions
+FROM bills.us_bills_actions
 LEFT JOIN members.us_congress_members
-ON us_congress_members.member_id  = bills_actions.member_id;
+ON us_congress_members.member_id  = us_bills_actions.member_id;
 -- SQLBook: Markup
 <font size = "5">
 
@@ -226,7 +231,13 @@ AND schema1.table1.key1_3 = schema2.table2.key2_3;
 
 - **Hint:** the rows in the two tables are uniquely identified by the columns: ```congress```, ```bill_number```, ```bill_type```
 -- SQLBook: Code
+-- Active: 1698883779896@@127.0.0.1@5432@us_congress
 -- Write your own code
+SELECT * FROM bills.us_bills_actions
+LEFT JOIN bills.us_bills_subjects
+ON us_bills_actions.congress = us_bills_subjects.congress
+AND us_bills_actions.bill_number = us_bills_subjects.bill_number
+AND us_bills_actions.bill_type = us_bills_subjects.bill_type;
 
 -- SQLBook: Markup
 # <span style="color:darkblue"> IV. (Optional) Additional Resources </span>
